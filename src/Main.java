@@ -10,7 +10,12 @@ public class Main {
         longestSurname.add(new Person("Антон", "Васильев Московский", 40));
         longestSurname.add(new Person("Василий", "Васильев ", 35));
 
-        Collections.sort(longestSurname, new PersonLongestSurnameComparator());
+
+        Comparator<Person> Surname = (Person o1, Person o2) -> Integer.compare(o2.getSurname().split(" ").length,
+                o1.getSurname().split(" ").length);
+
+
+        Collections.sort(longestSurname, Surname);
         System.out.println(longestSurname);
     }
 }
